@@ -8,22 +8,14 @@ clock = pygame.time.Clock() #create game clock
 space = pymunk.Space()
 space.gravity = (10, 100) #0 horizontal, 500 vertical gravity
 apples = []
-apple_surface = pygame.image.load('images/apple_red.png')
-
+apple_surface = pygame.image.load('apple_red.png')
 balls = []
-
-
-click_sound = pygame.mixer.Sound("sounds/iamsteve.mp3")
-
-
-
 while True: #Game loop
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
-            click_sound.play()
             apples.append(apple.create_apple(space, event.pos))
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
